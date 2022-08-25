@@ -7,8 +7,13 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  // ✨ implement
+  const trimmedObj = { ...obj };
+  Object.keys(trimmedObj).forEach((k) => (trimmedObj[k] = trimmedObj[k].trim()));
+  console.log(obj);
+  console.log(trimmedObj);
+  return trimmedObj;
 }
+// console.log(trimProperties({ key: "   value" }));
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -93,8 +98,8 @@ class Car {
    * @param {number} mpg - miles the car can drive per gallon of gas
    */
   constructor(name, tankSize, mpg) {
-    this.odometer = 0 // car initilizes with zero miles
-    this.tank = tankSize // car initiazes full of gas
+    this.odometer = 0; // car initilizes with zero miles
+    this.tank = tankSize; // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
   }
 
@@ -156,4 +161,4 @@ module.exports = {
   Counter,
   Seasons,
   Car,
-}
+};
