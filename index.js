@@ -146,6 +146,7 @@ class Car {
       return this.odometer;
     } else {
       this.odometer = this.odometer + milesCanDrive;
+      this.tank = 0;
       return this.odometer;
     }
   }
@@ -186,6 +187,14 @@ class Car {
  */
 function isEvenNumberAsync(number) {
   // ✨ implement
+  if (typeof number !== "number" || isNaN(number)) {
+    throw new Error("You need to enter a Number");
+  }
+  if (number % 2 === 0) {
+    return Promise.resolve(true);
+  } else {
+    return Promise.resolve(false);
+  }
 }
 
 module.exports = {
