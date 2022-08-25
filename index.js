@@ -9,11 +9,9 @@
 function trimProperties(obj) {
   const trimmedObj = { ...obj };
   Object.keys(trimmedObj).forEach((k) => (trimmedObj[k] = trimmedObj[k].trim()));
-  console.log(obj);
-  console.log(trimmedObj);
+
   return trimmedObj;
 }
-// console.log(trimProperties({ key: "   value" }));
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -25,6 +23,8 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  Object.keys(obj).forEach((k) => (obj[k] = obj[k].trim()));
+  return obj;
 }
 
 /**
@@ -36,7 +36,10 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  // ✨ implement
+  const valuesArr = integers.map((item) => {
+    return Object.values(item);
+  });
+  return Math.max(...valuesArr);
 }
 
 class Counter {
